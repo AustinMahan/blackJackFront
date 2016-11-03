@@ -1,0 +1,15 @@
+<div ng-repeat="data in gameCtrl.players track by $index">
+  <h1 ng-if="data == gameCtrl.me" ng-class="{winner: gameCtrl.winner == data}">You {{gameCtrl.myScore}} <br>
+    <img ng-repeat="card in gameCtrl.myCards[data]" src="./imgs/{{card.num}}_{{card.suit}}.png" alt="" />
+  </h1>
+  <h1 ng-if="data != gameCtrl.me" ng-class="{winner: gameCtrl.winner == data}">Player {{$index}}<span ng-if="gameCtrl.allScores"> Score is: {{gameCtrl.allScores[data]}}</span> <br>
+    <img ng-repeat="card in gameCtrl.cards[data]" src="./imgs/{{card.num}}_{{card.suit}}.png" alt="" />
+  </h1>
+</div>
+<button type="button" ng-click="gameCtrl.hit()" ng-if="!gameCtrl.allScores">Hit</button>
+
+<br>
+<button type="button" ng-click="gameCtrl.show()">Show</button>
+<br>
+<br>
+<button type="button" ng-click="gameCtrl.reset()">Reset Game</button>

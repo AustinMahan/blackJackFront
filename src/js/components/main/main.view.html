@@ -1,0 +1,10 @@
+<h1>test</h1>
+{{mainCtrl.greeting}}
+<br>
+<button type="button" ng-click="mainCtrl.startGame()">Start New Game</button>
+<div ng-if="mainCtrl.gameId">
+  Your game id is: {{mainCtrl.gameId}}
+</div>
+<br>
+<input type="text" ng-model="mainCtrl.gameId">
+<button type="button" ng-click="mainCtrl.joinGame(mainCtrl.gameId)">Join Game</button>
